@@ -8,4 +8,8 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync --delete public/ "s3://quizellydoo.com"
+      - aws s3 sync public/ s3://quizzelydoo.com --delete
+artifacts:
+  files:
+    - '**/*'
+  base-directory: public
