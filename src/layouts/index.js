@@ -34,10 +34,8 @@ const Header = () => (
   </div>
 )
 
-const TemplateWrapper = ({
-  children
-}) => (
-    <div>
+const TemplateWrapper = ({ children }) => (
+  <div>
       <Helmet
         title="Gatsby Default Starter"
         meta={[
@@ -57,10 +55,10 @@ const TemplateWrapper = ({
         {children()}
       </div>
     </div>
-  )
+);
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-}
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
