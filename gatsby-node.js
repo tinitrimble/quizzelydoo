@@ -19,20 +19,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           node {
             id,
             title,
-            headerImage {
-              id,
-              file {
-                url
-              }
-            },
-            questions {
-              id,
-              questionText,
-              answers {
-                label,
-                correct,
-              }
-            }
           }
         }
       }
@@ -48,7 +34,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: slug(edge.node.title),
             component: quizTemplate,
-            context: edge.node,
+            context: {
+              id: edge.node.id,
+            }
           })
         })
         resolve();

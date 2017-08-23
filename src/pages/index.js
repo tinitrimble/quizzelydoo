@@ -1,15 +1,18 @@
 import React from 'react'
+import slug from 'slug';
+import Link from 'gatsby-link';
 
 const IndexPage = ({ data }) => {
-  const quizes = data.allSitePage.edges.map(item => item.node);
+  const quizes = data.allContentfulQuiz.edges.map(item => ({
+    slug: slug(item.node.title),
+    title: item.node.title,
+  }));
   return (
     <div>
       <h1>Quizelydoo!</h1>
       <h2>Here are the quizzes</h2>
       {quizes.map(quiz => 
-        <div key={quiz.id} className="quiz">
-          <a href={quiz.path}>{quiz.id}</a>
-        </div>
+        <Link key={quiz.slug} to={quiz.slug}>{quiz.title}</Link>
       )}
     </div>
   )
@@ -19,17 +22,12 @@ export default IndexPage
 
 export const pageQuery = graphql`
 query PageQuery {
-  allSitePage(filter: {
-    componentPath: {
-      regex: "/quiz.js/"
+	allContentfulQuiz {
+    edges {
+      node {
+        title
+      }
     }
-  }) {
-	  edges {
-	    node {
-	      id,
-        path,
-	    }
-	  }
 	}
 }
 `;

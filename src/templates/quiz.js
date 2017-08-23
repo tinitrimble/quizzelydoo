@@ -15,3 +15,26 @@ export default class QuizTemplate extends React.Component {
     )
   }
 }
+
+export const pageQuery = graphql`
+  query quizQuery($id: String!) {
+    contentfulQuiz(id: { eq: $id }) {
+      id,
+      title,
+      headerImage {
+        id,
+        file {
+          url
+        }
+      },
+      questions {
+        id,
+        questionText,
+        answers {
+          label,
+          correct,
+        }
+      }
+    }
+  }
+`;
