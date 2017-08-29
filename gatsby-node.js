@@ -12,18 +12,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     // queries against the local Contentful graphql schema. Think of
     // it like the site has a built-in database constructed
     // from the fetched data that you can run queries against.
-    graphql(
-    `{
+    graphql(`{
       allContentfulQuiz {
         edges {
           node {
-            id,
-            title,
+            id
+            title
           }
         }
       }
-    }`
-      )
+    }`)
       .then(result => {
         if (result.errors) {
           reject(result.errors)
@@ -31,6 +29,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         const quizTemplate = path.resolve(`./src/templates/quiz.js`)
         result.data.allContentfulQuiz.edges.forEach(edge => {
+          console.log(edge.node);
           createPage({
             path: slug(edge.node.title),
             component: quizTemplate,

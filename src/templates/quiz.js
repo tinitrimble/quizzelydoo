@@ -7,7 +7,6 @@ export default class QuizTemplate extends React.Component {
     data: PropTypes.object.isRequired,
   }
   render() {
-    console.log(this.props.data);
     return (
       <div>
         <h1>Quiz</h1>
