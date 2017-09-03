@@ -15,7 +15,7 @@ class Question extends Component {
     questionNumber: PropTypes.number.isRequired,
     userAnswer: PropTypes.shape({
       label: PropTypes.string.isRequired,
-      correct: PropTypes.string.isRequired
+      correct: PropTypes.bool.isRequired
     })
   }
   getQuestionClassName() {
