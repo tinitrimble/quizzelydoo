@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import Introquiz from './Introquiz.js';
 import Counter from './Counter.js';
 import Question from './Question.js';
-import './Quiz.css';
 import Results from './Results.js';
+import * as PropTypes from "prop-types"
+import './Quiz.css';
 
 export default class Quiz extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    intropic: PropTypes.string,
+    description: PropTypes.string,
+    questions: PropTypes.array.isRequired,
+    results: PropTypes.array.isRequired,
+  }
   constructor() {
     super();
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this)
@@ -34,15 +42,15 @@ export default class Quiz extends Component {
       .length;
   }
   getResults() {
-    const totalQuestions = quizInfo.questions.length;
+    const totalQuestions = this.props.questions.length;
     const totalAnswered = this.state.userAnswers.length;
     if ( totalAnswered === totalQuestions ) {
       const score = this.getCorrectAnswerCount() / totalQuestions;
-      const resultNumber = Math.round((quizInfo.results.length - 1) * score);
+      const resultNumber = Math.round((this.props.results.length - 1) * score);
       return <Results
-        headline={quizInfo.results[resultNumber].headline}
-        resultpic={quizInfo.results[resultNumber].resultpic}
-        summary={quizInfo.results[resultNumber].summary} />
+        headline={this.props.results[resultNumber].headline}
+        resultpic={this.props.results[resultNumber].resultpic}
+        summary={this.props.results[resultNumber].summary} />
     }
   }
   render() {
@@ -52,9 +60,9 @@ export default class Quiz extends Component {
         {isQuizIntro ? (
           <div className="Introduction">
             <Introquiz
-              quiztitle={quizInfo.quizheadline.quiztitle}
-              intropic={quizInfo.quizheadline.intropic}
-              quizsummary={quizInfo.quizheadline.quizsummary}
+              quiztitle={this.props.title}
+              intropic={this.props.intropic}
+              quizsummary={this.props.description}
               onClick={this.handleQuizStart}/>
           </div>
         ) : (
@@ -62,7 +70,7 @@ export default class Quiz extends Component {
             <Counter
               totalscore={this.getCorrectAnswerCount()} 
               className="counterpos" />
-            {quizInfo.questions.map((question, index) =>
+            {this.props.questions.map((question, index) =>
               <Question
                 key={index}
                 questionNumber={index}

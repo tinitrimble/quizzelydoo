@@ -2,21 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import logo from './logo.svg';
+import Header from './header.js';
 import './index.css'
-import './header.scss';
-
-const Header = () => (
-  <header className="global">
-    <img src={logo} className="logo" alt="logo" />
-    <h2 className="page-name">Quizzelydoo</h2>
-    <div className="profile-menu">
-      <a href="www.google.com" className="profile-page">Profile page</a>
-    </div>
-    <input type="text" name="search" placeholder="Search" className="searchbar" >
-    </input>
-  </header>
-)
 
 const TemplateWrapper = ({ children }) => (
   <div>

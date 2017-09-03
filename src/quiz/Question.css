@@ -1,18 +1,20 @@
 .question {
-  border: 4px #6ec8b2 solid;
+  border: 2px #6ec8b2 solid;
   padding: 8px 5px;
   margin: 25px 250px;
   background-color: white;
-  border-radius: 25px;
-  text-align: center;
+  border-radius: 4px;
+  text-align: left;
   display: block;
   color: #59605f;
 }
 
 .question h3 {
   font-size: 36px;
-  margin-top: 2px;
+  margin-top: 5px;
   margin-bottom: 15px;
+  margin-left: 30px;
+  font-weight: 300;
 }
  
 .question img {
@@ -20,25 +22,33 @@
   max-height: 300px;
   text-align: center;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  margin-left: 30px;
   border-radius: 10px;
 }
 
 .question .possible-choices {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 30px;
   display: block;
+}
+
+.question .possible-choices .choice:hover {
+  cursor: pointer;
 }
 
 .question .possible-choices .choice {
   margin-bottom: 5px;
   margin-top: 5px;
-  background-color: rgb(229, 229, 229);
-  padding: 10px;
+  background-color: white;
+  border: 1px solid #9116FC;
+  padding: 5px 10px;
   width: 80%;
   text-align: left;
-  border-radius: 20px; 
+  border-radius: 3px; 
+  font-size: 24px;
+  font-weight: 200;
 }
 
 .question .possible-choices .choice:hover {

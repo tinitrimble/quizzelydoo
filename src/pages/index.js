@@ -6,10 +6,11 @@ const IndexPage = ({ data }) => {
   const quizes = data.allContentfulQuiz.edges.map(edge => edge.node);
   return (
     <div>
-      <h1>Quizelydoo!</h1>
       <h2>Here are the quizzes</h2>
       {quizes.map(quiz =>
-        <Link to={slug(quiz.title)} key={quiz.id}>{quiz.title}</Link>
+        <div>
+          <Link to={slug(quiz.title)} key={quiz.id}>{quiz.title}</Link>
+        </div>
       )}
     </div>
   )

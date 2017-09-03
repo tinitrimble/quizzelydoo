@@ -1,19 +1,21 @@
 .result-box {
-  border: 1px #6ec8b2 solid;
-  padding: 10px 10px;
-  margin: 30px 250px;
+  border: 2px #6ec8b2 solid;
+  padding: 8px 5px;
+  margin: 10px 250px;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 20px;
   text-align: center;
 }
 
 .result-box h1 {
-  font-size: 24px;
-  margin-bottom: -20px;
+  font-size: 36px;
+  margin-bottom: -25px;
+  margin-top: 5px;
 }
 
 .result-box h2 {
-  font-size: 36px;
+  font-size: 38px;
+  margin-bottom: 15px;
 }
 
 .result-box img {
@@ -22,7 +24,7 @@
 }
 
 .result-box p {
-  padding: 20px 80px;
+  padding: 10px 80px;
 }
 
 .result-box .share-this a {
@@ -30,6 +32,8 @@
 }
 
 .result-box .share-this .fbpic {
+  margin-top: 2px;
+  margin-bottom: 15px;
   display: inline-block;
   width: 145px;
 }
