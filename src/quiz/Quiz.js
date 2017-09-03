@@ -55,6 +55,7 @@ export default class Quiz extends Component {
   }
   render() {
     const isQuizIntro = this.state.showIntro;
+    console.log(this.props.questions);
     return (
       <div className="App">
         {isQuizIntro ? (
@@ -70,16 +71,20 @@ export default class Quiz extends Component {
             <Counter
               totalscore={this.getCorrectAnswerCount()} 
               className="counterpos" />
-            {this.props.questions.map((question, index) =>
-              <Question
+            {this.props.questions.map((question, index) => {
+              let picture;
+              if (question.picture) {
+                picture = question.picture.file.url;
+              }
+              return (<Question
                 key={index}
                 questionNumber={index}
-                text={question.text}
-                picture={question.picture}
+                text={question.questionText}
+                picture={picture}
                 answers={question.answers}
                 onClick={this.handleAnswerSelected}
-                userAnswer={this.state.userAnswers[index]}/>
-            )}
+                userAnswer={this.state.userAnswers[index]}/>);
+            })}
           </div>
         )}
         {this.getResults()}

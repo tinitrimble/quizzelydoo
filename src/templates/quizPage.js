@@ -45,6 +45,11 @@ export const pageQuery = graphql`
       questions {
         id,
         questionText,
+        picture {
+          file {
+            url
+          }
+        }
         answers {
           label,
           correct,

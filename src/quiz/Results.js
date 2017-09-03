@@ -23,7 +23,7 @@ class Results extends Component {
       <div className="result-box" >
       <h1>You scored: {this.props.score}</h1>
       <h2>{this.props.headline}</h2>
-      <img src={this.props.resultpic} />
+      <img src={this.props.resultpic.file.url} />
       <p>{this.props.summary}</p>
       <div className= "share-this">
         <a href="www.google.com">Share your result with your friends!</a>

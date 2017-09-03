@@ -8,13 +8,13 @@ class Question extends Component {
     text: PropTypes.string.isRequired,
     picture: PropTypes.string,
     answers: PropTypes.arrayOf(PropTypes.shape({
-      option: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       correct: PropTypes.bool.isRequired
     })),
     onClick: PropTypes.func.isRequired,
     questionNumber: PropTypes.number.isRequired,
     userAnswer: PropTypes.shape({
-      option: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       correct: PropTypes.string.isRequired
     })
   }
@@ -28,7 +28,7 @@ class Question extends Component {
   }
   getButtonClassName(answer) {
     const classes = { choice: true };
-    if (this.props.userAnswer && this.props.userAnswer.option === answer.option) {
+    if (this.props.userAnswer && this.props.userAnswer.label === answer.label) {
       if (this.props.userAnswer.correct) {
         classes.rightAnswer = true;
       } else {
@@ -54,7 +54,7 @@ class Question extends Component {
               className={this.getButtonClassName(answer)}
               onClick={() => this.props.onClick(answer, this.props.questionNumber)}
               disabled={!!this.props.userAnswer}>
-              {answer.option}
+              {answer.label}
             </button>
           )}
         </div>
