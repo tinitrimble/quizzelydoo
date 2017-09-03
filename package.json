@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "classnames": "^2.2.5",
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.6.5",
     "gatsby-plugin-google-analytics": "^1.0.1",
@@ -16,6 +17,7 @@
     "gatsby-source-filesystem": "^1.4.1",
     "gatsby-transformer-json": "^1.0.1",
     "prop-types": "^15.5.10",
+    "scroll-to-element": "^2.0.0",
     "slug": "^0.9.1"
   },
   "keywords": [

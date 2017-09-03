@@ -1,0 +1,87 @@
+.App .quiz-title {
+  text-align: center;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.App .quiz-title .quiz-name {
+  font-size: 48px;
+  margin-top: 5px;
+  color: #59605f;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+}
+
+.App .sum {
+  margin: 25px 5px 25px 5px;
+  color: #59605f;
+}
+
+.App .Quiz-pic {
+  border-radius: 10px;
+}
+
+.App .begin-quiz {
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #6EC8B2;
+  margin-bottom: 30px;
+}
+
+
+@media (min-width:801px) {
+  .App .quiz-title {
+    max-width: 60%;
+    min-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .App .quiz-title .quiz-name {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .App .quiz-title .sum {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  .App .Quiz-pic {
+    max-height: 260px;
+    margin-left: 0 auto;
+    text-align: center;
+    margin-right: 0 auto;
+  }
+}
+
+@media (max-width:800px) {
+  .quiz-title {
+    margin-right: 30px;
+    margin-left: 30px;
+    max-width: 800px;
+    min-width: 320px;
+    text-align: center;
+    padding-bottom: 35px;
+  }
+  .App .quiz-title .quiz-name {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 42px;
+  }
+  .App .quiz-title .sum {
+    line-height: 22px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+  .Quiz-pic {
+    text-align: center;
+    max-height: 200px;
+  }
+}
+

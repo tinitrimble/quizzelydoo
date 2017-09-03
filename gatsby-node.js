@@ -27,9 +27,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        const quizTemplate = path.resolve(`./src/templates/quiz.js`)
+        const quizTemplate = path.resolve(`./src/templates/quizPage.js`)
         result.data.allContentfulQuiz.edges.forEach(edge => {
-          console.log(edge.node);
           createPage({
             path: slug(edge.node.title),
             component: quizTemplate,
