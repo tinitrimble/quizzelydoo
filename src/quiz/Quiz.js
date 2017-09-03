@@ -49,8 +49,9 @@ export default class Quiz extends Component {
       const resultNumber = Math.round((this.props.results.length - 1) * score);
       return <Results
         headline={this.props.results[resultNumber].headline}
-        resultpic={this.props.results[resultNumber].resultpic}
-        summary={this.props.results[resultNumber].summary} />
+        score={score}
+        resultpic={this.props.results[resultNumber].resultPicture.file.url}
+        summary={this.props.results[resultNumber].summery.summery} />
     }
   }
   render() {

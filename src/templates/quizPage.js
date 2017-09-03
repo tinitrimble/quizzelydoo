@@ -57,6 +57,8 @@ export const pageQuery = graphql`
       }
       results {
         headline
+        startingScore
+        endScore
         resultPicture {
           file {
             url
