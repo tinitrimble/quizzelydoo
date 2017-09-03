@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Results.css';
-import scrollToElement from 'scroll-to-element';
+// import scrollToElement from 'scroll-to-element';
 
 class Results extends Component {
   static propTypes = {
@@ -11,12 +11,12 @@ class Results extends Component {
     summary: PropTypes.string.isRequired,
   }
   componentDidMount() {
-    window.setTimeout(() => {
-      scrollToElement('.share-this', {
-        align: 'middle',
-        duration: 500
-      })
-    }, 500)
+    // window.setTimeout(() => {
+      // scrollToElement('.share-this', {
+        // align: 'middle',
+        // duration: 500
+      // })
+    // }, 500)
   }
   render() {
     return (
