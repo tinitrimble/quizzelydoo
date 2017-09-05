@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Introquiz.css';
+import './Introquiz.scss';
 import PropTypes from 'prop-types';
 import scrollToElement from 'scroll-to-element';
 

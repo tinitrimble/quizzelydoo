@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Results.css';
+import './Results.scss';
 import scrollToElement from 'scroll-to-element';
 
 class Results extends Component {

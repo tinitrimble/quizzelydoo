@@ -4,7 +4,7 @@ import Counter from './Counter.js';
 import Question from './Question.js';
 import Results from './Results.js';
 import * as PropTypes from "prop-types"
-import './Quiz.css';
+import './Quiz.scss';
 
 export default class Quiz extends Component {
   static propTypes = {
