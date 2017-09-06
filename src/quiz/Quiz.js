@@ -4,6 +4,7 @@ import Counter from './Counter.js';
 import Question from './Question.js';
 import Results from './Results.js';
 import * as PropTypes from "prop-types"
+import classNames from 'classnames';
 import './Quiz.scss';
 
 export default class Quiz extends Component {
@@ -70,8 +71,8 @@ export default class Quiz extends Component {
         ) : (
           <div className="Quiz-Display">
             <Counter
-              totalscore={this.getCorrectAnswerCount()} 
-              className="counterpos" />
+              totalscore={this.getCorrectAnswerCount()}
+              className="count" />
             {this.props.questions.map((question, index) => {
               let picture;
               if (question.picture) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Counter.css';
+import './Counter.scss';
 import PropTypes from 'prop-types';
 
 class Counter extends Component {
@@ -8,7 +8,7 @@ class Counter extends Component {
   }
   render() {
     return (
-      <div className="counter-info">
+      <div className="count">
         <p>Your score is: {this.props.totalscore}</p>
       </div>
     )

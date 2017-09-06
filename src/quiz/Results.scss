@@ -1,6 +1,5 @@
 .result-box {
   border: 2px #6ec8b2 solid;
-  padding: 8px 5px;
   margin: 10px 250px;
   background-color: white;
   border-radius: 20px;
@@ -13,19 +12,25 @@
   h2 {
     font-size: 38px;
     margin-bottom: 15px;
+    text-align: left;
+    margin-left: 110px;
   }
   img {
     width: 75%;
     border-radius: 20px;
   }
   p {
-    padding: 10px 80px;
+    padding: 8px 80px;
+    text-align: left;
+    margin-left: 50px;
   }
-  .share-this a {
-    display: block;
+  .share-this {
+    a {
+      display: block;
+    }
     .fbpic {
       margin-top: 2px;
-      margin-bottom: 15px;
+      margin-bottom: 2px;
       display: inline-block;
       width: 145px;
     }
