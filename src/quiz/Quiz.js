@@ -24,7 +24,8 @@ export default class Quiz extends Component {
     this.setState({
       correctAnswers: 0,
       userAnswers: [],
-      showIntro: true
+      showIntro: true,
+      showCounter: false
     })
   }
   handleQuizStart() {
@@ -41,6 +42,15 @@ export default class Quiz extends Component {
     return this.state.userAnswers
       .filter(answer => answer.correct)
       .length;
+  }
+  getCounter() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    if (totalAnswered !== totalQuestions) {
+      return <Counter
+              totalscore={this.getCorrectAnswerCount()}
+              className="count" />
+    }
   }
   getResults() {
     const totalQuestions = this.props.questions.length;
@@ -70,9 +80,7 @@ export default class Quiz extends Component {
           </div>
         ) : (
           <div className="Quiz-Display">
-            <Counter
-              totalscore={this.getCorrectAnswerCount()}
-              className="count" />
+            {this.getCounter()}
             {this.props.questions.map((question, index) => {
               let picture;
               if (question.picture) {
