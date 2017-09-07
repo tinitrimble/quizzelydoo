@@ -22,7 +22,7 @@ class Results extends Component {
   render() {
     return (
       <div className="result-box" >
-        <h1>You scored: {this.props.score}</h1>
+        <h1>You scored: {this.props.score}% </h1>
         <h2>{this.props.headline}</h2>
         <img src={this.props.resultpic} />
         <p>{this.props.summary}</p>

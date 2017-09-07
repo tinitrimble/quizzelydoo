@@ -56,8 +56,8 @@ export default class Quiz extends Component {
     const totalQuestions = this.props.questions.length;
     const totalAnswered = this.state.userAnswers.length;
     if ( totalAnswered === totalQuestions ) {
-      const score = this.getCorrectAnswerCount() / totalQuestions;
-      const resultNumber = Math.round((this.props.results.length - 1) * score);
+      const score = Math.round((this.getCorrectAnswerCount() / totalQuestions) * 100);
+      const resultNumber = Math.round((this.props.results.length - 1) * (score / 100));
       return <Results
         headline={this.props.results[resultNumber].headline}
         score={score}
