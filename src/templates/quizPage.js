@@ -17,7 +17,6 @@ export default class QuizPage extends React.Component {
     } = this.props.data.contentfulQuiz;
     return (
       <div>
-        <h3>This quizPage renders this page.... then the quiz component renders what is below</h3>
         <Quiz
           title={title}
           intropic={headerImage.file.url}
