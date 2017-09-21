@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './header.scss';
 
 const Header = () => (
-  <header className="global">
+  <header className="global" ui-view="header" autoscroll="true">
     <img src={logo} className="logo" alt="logo" />
     <h2 className="page-name">Quizzelydoo</h2>
     <div className="profile-menu">

@@ -4,7 +4,8 @@ import Counter from './Counter.js';
 import Question from './Question.js';
 import Results from './Results.js';
 import * as PropTypes from "prop-types"
-import './Quiz.css';
+import classNames from 'classnames';
+import './Quiz.scss';
 
 export default class Quiz extends Component {
   static propTypes = {
@@ -23,7 +24,8 @@ export default class Quiz extends Component {
     this.setState({
       correctAnswers: 0,
       userAnswers: [],
-      showIntro: true
+      showIntro: true,
+      showCounter: false
     })
   }
   handleQuizStart() {
@@ -41,12 +43,21 @@ export default class Quiz extends Component {
       .filter(answer => answer.correct)
       .length;
   }
+  getCounter() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    if (totalAnswered !== totalQuestions) {
+      return <Counter
+              totalscore={this.getCorrectAnswerCount()}
+              className="count" />
+    }
+  }
   getResults() {
     const totalQuestions = this.props.questions.length;
     const totalAnswered = this.state.userAnswers.length;
     if ( totalAnswered === totalQuestions ) {
-      const score = this.getCorrectAnswerCount() / totalQuestions;
-      const resultNumber = Math.round((this.props.results.length - 1) * score);
+      const score = Math.round((this.getCorrectAnswerCount() / totalQuestions) * 100);
+      const resultNumber = Math.round((this.props.results.length - 1) * (score / 100));
       return <Results
         headline={this.props.results[resultNumber].headline}
         score={score}
@@ -69,9 +80,7 @@ export default class Quiz extends Component {
           </div>
         ) : (
           <div className="Quiz-Display">
-            <Counter
-              totalscore={this.getCorrectAnswerCount()} 
-              className="counterpos" />
+            {this.getCounter()}
             {this.props.questions.map((question, index) => {
               let picture;
               if (question.picture) {

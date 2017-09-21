@@ -1,15 +1,22 @@
 import React from 'react'
 import slug from 'slug';
 import Link from 'gatsby-link';
+import index from './index.scss';
 
 const IndexPage = ({ data }) => {
   const quizes = data.allContentfulQuiz.edges.map(edge => edge.node);
+  console.log(quizes);
   return (
-    <div>
-      <h2>Here are the quizzes</h2>
+    <div className="mainquizzes">
+      <h2>Featured Quizzes</h2>
       {quizes.map(quiz =>
-        <div>
-          <Link to={slug(quiz.title)} key={quiz.id}>{quiz.title}</Link>
+        <div className="quizbox">
+          <Link to={slug(quiz.title)} className="quizlink" key={quiz.id}>
+            <img src={quiz.headerImage.file.url} className="headerImage"/>
+            <div className="quiztitle">
+              {quiz.title}
+            </div>
+          </Link>
         </div>
       )}
     </div>
@@ -25,6 +32,9 @@ query quizzesQuery {
       node {
         id
         title
+        headerImage {
+        file {url}
+       }
       }
     }
   }

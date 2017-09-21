@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Question.css';
+import './Question.scss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
