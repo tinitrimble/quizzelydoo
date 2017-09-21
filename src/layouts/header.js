@@ -5,7 +5,7 @@ import './header.scss';
 const Header = () => (
   <header className="global" ui-view="header" autoscroll="true">
     <img src={logo} className="logo" alt="logo" />
-    <h2 className="page-name">Quizzelydoo</h2>
+    <a className="page-name" href="/" >Quizzelydoo</a>
     <div className="profile-menu">
       <a href="www.google.com" className="profile-page">Profile page</a>
     </div>
