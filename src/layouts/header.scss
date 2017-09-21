@@ -22,6 +22,7 @@ header.global {
     color: black;
     position: absolute;
     padding: 2px 2px 2px 2px;
+    text-decoration: none;
     margin-top: 15px;
     font-size: 36px;
     font-family: 'Poiret One', cursive;
@@ -37,14 +38,14 @@ header.global {
     margin-left: 0 auto;
   }
 
-  .profile-page {
+  .profilepage {
     display: inline-block;
     margin-right: 10px;
     text-decoration: none;
     color: #5daa97;
   }
 
-  .profile-page:hover {
+  .profilepage:hover {
     color: #437c6e;
   }
 
@@ -60,7 +61,7 @@ header.global {
 
   .searchbar:focus {
     width: 26%;
-    outline: 1px solid rgba(255, 25, 94, 0.5);
+    outline: 1px solid rgba(249, 113, 49, 0.5);
     font-size: 16px;
   }
 
@@ -91,7 +92,7 @@ header.global {
       margin-top: 10px;
     }
 
-    .profile-page {
+    .profilepage {
       display: block;
       margin-top: 15px;
       font-size: 14px;

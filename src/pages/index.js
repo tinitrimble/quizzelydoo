@@ -5,7 +5,6 @@ import index from './index.scss';
 
 const IndexPage = ({ data }) => {
   const quizes = data.allContentfulQuiz.edges.map(edge => edge.node);
-  console.log(quizes);
   return (
     <div className="mainquizzes">
       <h2>Featured Quizzes</h2>
