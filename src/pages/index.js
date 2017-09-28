@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 import index from './index.scss';
 
 const IndexPage = ({ data }) => {
-  const quizes = data.allContentfulQuiz.edges.map(edge => edge.node);
+  const quizes = data.allContentfulQuizOneCorrect.edges.map(edge => edge.node);
   return (
     <div className="mainquizzes">
       <h2>Featured Quizzes</h2>
@@ -26,7 +26,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
 query quizzesQuery {
-  allContentfulQuiz {
+  allContentfulQuizOneCorrect {
     edges {
       node {
         id

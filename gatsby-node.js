@@ -13,7 +13,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     // it like the site has a built-in database constructed
     // from the fetched data that you can run queries against.
     graphql(`{
-      allContentfulQuiz {
+      allContentfulQuizOneCorrect {
         edges {
           node {
             id
@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         const quizTemplate = path.resolve(`./src/templates/quizPage.js`)
-        result.data.allContentfulQuiz.edges.forEach(edge => {
+        result.data.allContentfulQuizOneCorrect.edges.forEach(edge => {
           createPage({
             path: slug(edge.node.title),
             component: quizTemplate,
