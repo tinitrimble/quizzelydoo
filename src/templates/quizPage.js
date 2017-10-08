@@ -14,7 +14,7 @@ export default class QuizPage extends React.Component {
       results,
       description,
       headerImage
-    } = this.props.data.contentfulQuiz;
+    } = this.props.data.allContentfulQuizOneCorrect;
     return (
       <div>
         <Quiz
@@ -31,7 +31,7 @@ export default class QuizPage extends React.Component {
 
 export const pageQuery = graphql`
   query quizQuery($id: String!) {
-    contentfulQuiz(id: { eq: $id }) {
+    allContentfulQuizOneCorrect(id: { eq: $id }) {
       id
       title
       description

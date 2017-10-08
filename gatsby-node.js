@@ -5,15 +5,20 @@ const path = require('path');
 // called after the Gatsby bootstrap is finished so you have
 // access to any information necessary to programatically
 // create pages.
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({
+  graphql,
+  boundActionCreators
+}) => {
+  const {
+    createPage
+  } = boundActionCreators
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local Contentful graphql schema. Think of
     // it like the site has a built-in database constructed
     // from the fetched data that you can run queries against.
     graphql(`{
-      allContentfulQuiz {
+      allContentfulQuizOneCorrect {
         edges {
           node {
             id
@@ -27,16 +32,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        const quizTemplate = path.resolve(`./src/templates/quizPage.js`)
-        result.data.allContentfulQuiz.edges.forEach(edge => {
-          createPage({
-            path: slug(edge.node.title),
-            component: quizTemplate,
-            context: {
-              id: edge.node.id,
-            }
+        const quizTemplate = path.resolve(`./src/templates/quizPage.js`);
+        if (result.data) {
+          result.data.allContentfulQuizOneCorrect.edges.forEach(edge => {
+            createPage({
+              path: slug(edge.node.title),
+              component: quizTemplate,
+              context: {
+                id: edge.node.id,
+              }
+            })
           })
-        })
+        }
         resolve();
       })
   })
