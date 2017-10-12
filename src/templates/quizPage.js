@@ -31,7 +31,11 @@ export default class QuizPage extends React.Component {
 
 export const pageQuery = graphql`
   query quizQuery($id: String!) {
+<<<<<<< HEAD
     contentfulQuizOneCorrect(id: { eq: $id }) {
+=======
+    allContentfulQuizOneCorrect(id: { eq: $id }) {
+>>>>>>> master
       id
       title
       description
