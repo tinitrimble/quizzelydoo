@@ -10,6 +10,29 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-bottom: 40px;
+    position: relative;
+    .quiz-name {
+      font-size: 48px;
+      margin-top: 5px;
+      color: #f97131;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      display: inline-block;
+    }
+    .sum {
+      margin: 45px 5px 25px 5px;
+      padding-left: 55px;
+      width: 80%;
+      color: #59605f;
+      font-size: 22px;
+      text-align: left;
+    }
+    .Quiz-pic {
+      border-radius: 10px;
+    }
     display: inline-block;
   }
   .sum {

@@ -32,6 +32,16 @@ exports.createPages = ({
           reject(result.errors)
         }
 
+<<<<<<< HEAD
+        const quizTemplate = path.resolve(`./src/templates/quizPage.js`)
+        result.data.allContentfulQuizOneCorrect.edges.forEach(edge => {
+          createPage({
+            path: slug(edge.node.title),
+            component: quizTemplate,
+            context: {
+              id: edge.node.id,
+            }
+=======
         const quizTemplate = path.resolve(`./src/templates/quizPage.js`);
         if (result.data) {
           result.data.allContentfulQuizOneCorrect.edges.forEach(edge => {
@@ -42,6 +52,7 @@ exports.createPages = ({
                 id: edge.node.id,
               }
             })
+>>>>>>> master
           })
         }
         resolve();

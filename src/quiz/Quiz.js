@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Introquiz from './Introquiz.js';
-import Counter from './Counter.js';
 import Question from './Question.js';
 import Results from './Results.js';
 import * as PropTypes from "prop-types"
@@ -18,18 +17,12 @@ export default class Quiz extends Component {
   constructor() {
     super();
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this)
-    this.handleQuizStart = this.handleQuizStart.bind(this)
   }
   componentWillMount() {
     this.setState({
       correctAnswers: 0,
       userAnswers: [],
-      showIntro: true,
-      showCounter: false
     })
-  }
-  handleQuizStart() {
-    this.setState({ showIntro: false })
   }
   handleAnswerSelected(answer, questionNumber) {
     const updatedUserAnswers = this.state.userAnswers.slice();
@@ -43,16 +36,7 @@ export default class Quiz extends Component {
       .filter(answer => answer.correct)
       .length;
   }
-  getCounter() {
-    const totalQuestions = this.props.questions.length;
-    const totalAnswered = this.state.userAnswers.length;
-    if (totalAnswered !== totalQuestions) {
-      return <Counter
-              totalscore={this.getCorrectAnswerCount()}
-              className="count" />
-    }
-  }
-  getResults() {
+  getOneAnswerResult() {
     const totalQuestions = this.props.questions.length;
     const totalAnswered = this.state.userAnswers.length;
     if ( totalAnswered === totalQuestions ) {
@@ -65,40 +49,69 @@ export default class Quiz extends Component {
         summary={this.props.results[resultNumber].summery.summery} />
     }
   }
+  getAnswerMatchResult() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    const counts = {};
+    const compare = -1;
+    const mostFrequent = [];
+    for (i = 0; i <= this.totalAnswered.length; i++) {
+      const resultAnswer = this.userAnswer.answerAnswerMatch[i];
+      if (counts[resultAnswer] === undefined) {
+        counts[resultAnswer] = 1;
+      } else {
+        counts[resultAnswer] = counts[resultAnswer] + 1;
+      }
+      if (counts[resultAnswer] > compare) {
+        this.compare = counts[resultAnswer];
+        this.mostFrequent = userAnswer.answerAnswerMatch[i];
+        return <Results
+          headline={this.props.resultAnswerMatch[mostFrequent].headline}
+          score={this.props.resultAnswerMatch[mostFrequent]}
+          resultpic={this.props.resultAnswerMatch[mostFrequent].resultPicture.file.url}
+          summary={this.props.resultAnswerMatch[mostFrequent].summery.summery} />
+      }
+    }
+  }
+  getResults() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    if (totalAnswered === totalQuestions) {
+      if (this.userAnswers.hasOwnProperty('correct')) {
+        return this.getOneAnswerResult()
+      } else {
+        return this.getAnswerMatchResult()
+      }
+    }
+  }
   render() {
-    const isQuizIntro = this.state.showIntro;
     console.log(this.props.questions);
     return (
       <div className="App">
-        {isQuizIntro ? (
-          <div className="Introduction">
-            <Introquiz
-              quiztitle={this.props.title}
-              intropic={this.props.intropic}
-              quizsummary={this.props.description}
-              onClick={this.handleQuizStart}/>
-          </div>
-        ) : (
-          <div className="Quiz-Display">
-            {this.getCounter()}
-            {this.props.questions.map((question, index) => {
-              let picture;
-              if (question.picture) {
-                picture = question.picture.file.url;
-              }
-              return (<Question
-                key={index}
-                questionNumber={index}
-                text={question.questionText}
-                picture={picture}
-                answers={question.answers}
-                onClick={this.handleAnswerSelected}
-                userAnswer={this.state.userAnswers[index]}/>);
-            })}
-          </div>
-        )}
-        {this.getResults()}
+      <div className="Introduction">
+        <Introquiz
+          quiztitle={this.props.title}
+          intropic={this.props.intropic}
+          quizsummary={this.props.description}
+          onClick={this.handleQuizStart}/>
       </div>
-    )
-  }
+      <div className="Quiz-Display">
+        {this.props.questions.map((question, index) => {
+          let picture;
+          if (question.picture) {
+            picture = question.picture.file.url;
+          }
+          return (<Question
+            key={index}
+            questionNumber={index}
+            text={question.questionText}
+            picture={picture}
+            answers={question.answers}
+            onClick={this.handleAnswerSelected}
+            userAnswer={this.state.userAnswers[index]}/>);
+        })}
+      </div>
+      {this.getResults()}
+      </div>
+    )}
 }
