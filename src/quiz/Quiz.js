@@ -66,10 +66,10 @@ export default class Quiz extends Component {
         this.compare = counts[resultAnswer];
         this.mostFrequent = userAnswer.answerAnswerMatch[i];
         return <Results
-          headline={this.props.resultAnswer[i]}
-          score={this.props.resultAnswerMatch[i]}
-          resultpic={this.props.resultAnswerMatch[i]}
-          summary={this.props.resultAnswerMatch[i]} />
+          headline={this.props.resultAnswerMatch[mostFrequent].headline}
+          score={this.props.resultAnswerMatch[mostFrequent]}
+          resultpic={this.props.resultAnswerMatch[mostFrequent].resultPicture.file.url}
+          summary={this.props.resultAnswerMatch[mostFrequent].summery.summery} />
       }
     }
   }
