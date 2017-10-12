@@ -31,6 +31,43 @@ export default class QuizPage extends React.Component {
 
 export const pageQuery = graphql`
   query quizQuery($id: String!) {
+    contentfulquizAnswerMatch(id: { eq: $id}) {
+    allContentfulQuizAnswerMatch(id: { eq: $id}) {
+      id
+      title
+      description
+      headerImage {
+        id
+        file {
+          url
+        }
+      },
+      questionAnswerMatch {
+        id,
+        questionText,
+        picture {
+          file {
+            url
+          }
+        }
+        answerAnswerMatch {
+          label,
+          image,
+          result
+        }
+      }
+      resultAnswerMatch {
+        headline
+        resultPicture {
+          file {
+            url
+          }
+        }
+        summery {
+          summery
+        }
+      }
+    },
     contentfulQuizOneCorrect(id: { eq: $id }) {
     allContentfulQuizOneCorrect(id: { eq: $id }) {
       id
@@ -69,5 +106,6 @@ export const pageQuery = graphql`
         }
       }
     }
+  }
   }
 }`;
