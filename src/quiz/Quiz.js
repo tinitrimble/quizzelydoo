@@ -36,7 +36,7 @@ export default class Quiz extends Component {
       .filter(answer => answer.correct)
       .length;
   }
-  getResults() {
+  getOneAnswerResult() {
     const totalQuestions = this.props.questions.length;
     const totalAnswered = this.state.userAnswers.length;
     if ( totalAnswered === totalQuestions ) {
@@ -49,34 +49,69 @@ export default class Quiz extends Component {
         summary={this.props.results[resultNumber].summery.summery} />
     }
   }
+  getAnswerMatchResult() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    const counts = {};
+    const compare = -1;
+    const mostFrequent = [];
+    for (i = 0; i <= this.totalAnswered.length; i++) {
+      const resultAnswer = this.userAnswer.answerAnswerMatch[i];
+      if (counts[resultAnswer] === undefined) {
+        counts[resultAnswer] = 1;
+      } else {
+        counts[resultAnswer] = counts[resultAnswer] + 1;
+      }
+      if (counts[resultAnswer] > compare) {
+        this.compare = counts[resultAnswer];
+        this.mostFrequent = userAnswer.answerAnswerMatch[i];
+        return <Results
+          headline={this.props.resultAnswer[i]}
+          score={this.props.resultAnswerMatch[i]}
+          resultpic={this.props.resultAnswerMatch[i]}
+          summary={this.props.resultAnswerMatch[i]} />
+      }
+    }
+  }
+  getResults() {
+    const totalQuestions = this.props.questions.length;
+    const totalAnswered = this.state.userAnswers.length;
+    if (totalAnswered === totalQuestions) {
+      if (this.userAnswers.hasOwnProperty('correct')) {
+        return this.getOneAnswerResult()
+      } else {
+        return this.getAnswerMatchResult()
+      }
+    }
+  }
   render() {
     console.log(this.props.questions);
     return (
       <div className="App">
-        <div className="Introduction">
-          <Introquiz
-            quiztitle={this.props.title}
-            intropic={this.props.intropic}
-            quizsummary={this.props.description}
-            onClick={this.handleQuizStart}/>
-        </div>
-        <div className="Quiz-Display">
-          {this.props.questions.map((question, index) => {
-            let picture;
-            if (question.picture) {
-              picture = question.picture.file.url;
-            }
-            return (<Question
-              key={index}
-              questionNumber={index}
-              text={question.questionText}
-              picture={picture}
-              answers={question.answers}
-              onClick={this.handleAnswerSelected}
-              userAnswer={this.state.userAnswers[index]}/>);
-          })}
-        </div>
-        {this.getResults()}
+      <div className="Introduction">
+        <Introquiz
+          quiztitle={this.props.title}
+          intropic={this.props.intropic}
+          quizsummary={this.props.description}
+          onClick={this.handleQuizStart}/>
+      </div>
+      <div className="Quiz-Display">
+        {this.props.questions.map((question, index) => {
+          let picture;
+          if (question.picture) {
+            picture = question.picture.file.url;
+          }
+          return (<Question
+            key={index}
+            questionNumber={index}
+            text={question.questionText}
+            picture={picture}
+            answers={question.answers}
+            onClick={this.handleAnswerSelected}
+            userAnswer={this.state.userAnswers[index]}/>);
+        })}
+      </div>
+      {this.getResults()}
       </div>
     )}
 }
